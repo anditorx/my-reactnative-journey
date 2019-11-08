@@ -16,11 +16,19 @@ const Header = () => {
 
 const styles = {
   viewStyle : {
-    backgroundColor: '#F8F8',
-    height : 50,
+    backgroundColor: '#049372',
+    height : 60,
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {width: 0,height: 2},
+    shadowOpacity: 0.2,
+    elevation : 2,
+    position : 'relative',
   },
   textStyle : {
     fontSize: 25,
+    color: 'white'
   }
 }
 // make the component available to other parts of the app
