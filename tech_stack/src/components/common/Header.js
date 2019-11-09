@@ -16,8 +16,8 @@ const Header = (props) => {
 
 const styles = {
   viewStyle : {
-    backgroundColor: '#049372',
-    height : 40,
+    backgroundColor: '#0000',
+    height : 60,
     justifyContent: 'center',
     alignItems: 'center',
     shadowColor: '#000',
@@ -28,7 +28,7 @@ const styles = {
   },
   textStyle : {
     fontSize: 25,
-    color: 'white'
+    color: '#000'
   }
 }
 // make the component available to other parts of the app
