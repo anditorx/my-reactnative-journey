@@ -21,11 +21,27 @@ export default class LoginForm extends Component {
     });
 
     firebase.auth().signInWithEmailAndPassword(email,password)
+    .then(this.onLoginSuccess.bind(this))
     .catch(() =>{
       firebase.auth().createUserWithEmailAndPassword(email,password)
-      .catch(() => {
-        this.setState({error: 'Authentication Failed.'});
-      });
+      .then(this.onLoginSuccess.bind(this))
+      .catch(this.onLoginFail.bind(this));
+    });
+  }
+
+  onLoginSuccess(){
+    this.setState({
+      email : '',
+      password : '',
+      loading : false,
+      error : '',
+    });
+  }
+
+  onLoginFail(){
+    this.setState({
+      error: 'Authentication Failed',
+      loading: false
     });
   }
 
@@ -33,7 +49,6 @@ export default class LoginForm extends Component {
     if (this.state.loading) {
       return <Spinner size={"small"} />
     }
-    
     return(
       <Button onPress={this.onButtonPress.bind(this)}>
         Login
