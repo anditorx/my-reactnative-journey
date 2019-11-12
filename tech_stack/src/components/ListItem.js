@@ -8,7 +8,8 @@ class ListItem extends Component {
 
   renderDescription() {
     const { library, selectedLibraryId } = this.props;
-
+    console.log(this.props);
+    
     if (library.id == selectedLibraryId) {
       return (
         <Text>{library.description}</Text>
@@ -36,7 +37,7 @@ class ListItem extends Component {
   }
 }
 
-const mapStateToProps =  state => {
+const mapStateToProps =  (state, ownProps) => {
   return { selectedLibraryId: state.selectedLibraryId }
 }
 
