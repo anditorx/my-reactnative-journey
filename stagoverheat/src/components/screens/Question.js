@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, FlatList } from 'react-native'
+import { Text, View, FlatList, StyleSheet } from 'react-native'
 
 const QuestionList = [
   {title:"First Question", author: "Yahya"},
@@ -11,7 +11,14 @@ const QuestionList = [
 
 function Item ({title, author}) {
   return (
-    <Text>{title} - {author}</Text>
+    <View style={styles.row}>
+      <View style={styles.titleRow}>
+        <Text>{title}</Text>
+      </View>
+      <View style={styles.authorRow}>
+        <Text>{author}</Text>
+      </View>
+    </View>
   );
 }
 
@@ -19,7 +26,7 @@ export default class Question extends Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <FlatList 
           data={QuestionList}
           renderItem={({item}) => <Item title={item.title} author={item.author} />}
@@ -29,3 +36,27 @@ export default class Question extends Component {
     )
   }
 }
+
+const styles = StyleSheet.create({
+
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: '#f5fcff',
+  },
+  row:{
+    flex:1,
+    justifyContent: 'center',
+    padding: 20,
+    marginBottom: 10,
+    backgroundColor: '#FFF',
+    flexDirection: 'row',
+  },
+  titleRow:{
+    flex:4,
+  },
+  authorRow:{
+    flex:1,
+  }
+
+});
