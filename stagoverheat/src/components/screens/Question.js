@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import { Text, View, FlatList, StyleSheet } from 'react-native'
+import { View, FlatList, StyleSheet } from 'react-native'
+import { Header, Title, Container, Content, Left, Body, Right, ListItem, Text, Icon } from 'native-base'
+
 
 const QuestionList = [
   {title:"First Question", author: "Yahya"},
@@ -11,28 +13,51 @@ const QuestionList = [
 
 function Item ({title, author}) {
   return (
-    <View style={styles.row}>
-      <View style={styles.titleRow}>
-        <Text>{title}</Text>
-      </View>
-      <View style={styles.authorRow}>
+    // <View style={styles.row}>
+    //   <View style={styles.titleRow}>
+    //     <Text>{title}</Text>
+    //   </View>
+    //   <View style={styles.authorRow}>
+    //     <Text>{author}</Text>
+    //   </View>
+    // </View>
+    <ListItem>
+      <Body>
         <Text>{author}</Text>
-      </View>
-    </View>
+        <Text note>{title}</Text>
+      </Body>
+      <Right>
+        <Icon name="arrow-forward" style={{color:"#0098ff"}} />
+      </Right>
+    </ListItem>
   );
 }
 
 export default class Question extends Component {
 
+  renderHeader() {
+    const {title} = this.props;
+    return(
+      <Header>
+        <Body style={styles.bodyHeader}>
+          <Title>{title}</Title>
+        </Body>
+      </Header>
+    );
+  }
+
   render() {
     return (
-      <View style={styles.container}>
-        <FlatList 
-          data={QuestionList}
-          renderItem={({item}) => <Item title={item.title} author={item.author} />}
-          keyExtractor={item => item.title}
-        />
-      </View>
+      <Container>
+        {this.renderHeader()}
+        <Content>
+          <FlatList 
+            data={QuestionList}
+            renderItem={({item}) => <Item title={item.title} author={item.author} />}
+            keyExtractor={item => item.title}
+          />
+        </Content>
+      </Container>
     )
   }
 }
@@ -57,6 +82,9 @@ const styles = StyleSheet.create({
   },
   authorRow:{
     flex:1,
+  },
+  bodyHeader:{
+    alignItems: 'center'
   }
 
 });
