@@ -1,30 +1,23 @@
 import React, { Component } from 'react'
 import { View, FlatList, StyleSheet } from 'react-native'
 import { Header, Title, Container, Content, Left, Body, Right, ListItem, Text, Icon } from 'native-base'
+import { Actions } from 'react-native-router-flux'
 
 
 const QuestionList = [
-  {title:"First Question", author: "Yahya"},
-  {title:"Second Question", author: "Diki"},
-  {title:"Third Question", author: "Budi"},
-  {title:"Fourth Question", author: "Jimmy"},
-  {title:"5 Question", author: "Doni"},
+  {title:"First Question", author: "Yahya",vote:1, description: "Description 1", createdAt: new Date("2019-10-17")},
+  {title:"Second Question", author: "Diki",vote:3, description: "Description 2", createdAt: new Date("2019-10-18")},
+  {title:"Third Question", author: "Budi",vote:2, description: "Description 3", createdAt: new Date("2019-10-19")},
+  {title:"Fourth Question", author: "Jimmy",vote:1, description: "Description 4", createdAt: new Date("2019-10-20")},
+  {title:"5 Question", author: "Doni",vote:3, description: "Description 5", createdAt: new Date("2019-10-21")},
 ];
 
-function Item ({title, author}) {
+function Item ({title, author, vote, description, createdAt}) {
   return (
-    // <View style={styles.row}>
-    //   <View style={styles.titleRow}>
-    //     <Text>{title}</Text>
-    //   </View>
-    //   <View style={styles.authorRow}>
-    //     <Text>{author}</Text>
-    //   </View>
-    // </View>
-    <ListItem>
+    <ListItem onPress={() => {Actions.QuestionDetail({question: {title, author, vote, description, createdAt}})}}>
       <Body>
-        <Text>{author}</Text>
-        <Text note>{title}</Text>
+        <Text>{title}</Text>
+        <Text note>{author}</Text>
       </Body>
       <Right>
         <Icon name="arrow-forward" style={{color:"#0098ff"}} />
@@ -53,7 +46,7 @@ export default class Question extends Component {
         <Content>
           <FlatList 
             data={QuestionList}
-            renderItem={({item}) => <Item title={item.title} author={item.author} />}
+            renderItem={({item}) => <Item title={item.title} author={item.author} vote={item.vote} description={item.description} createdAt={item.createdAt}/>}
             keyExtractor={item => item.title}
           />
         </Content>
