@@ -8,17 +8,17 @@ import moment from 'moment'
 
 export default class QuestionDetail extends Component {
 
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     vote:0,
-  //   }
-  // }
+  constructor(props) {
+    super(props);
+    this.state = {
+      vote:0,
+    }
+  }
 
-  // componentWillMount() {
-  //   const {vote} = this.props.question;
-  //   this.setState({vote: vote});
-  // }
+  componentWillMount() {
+    const {vote} = this.props.question;
+    this.setState({vote: vote});
+  }
   
 
   renderHeader() {
@@ -38,8 +38,19 @@ export default class QuestionDetail extends Component {
     );
   }
 
+  voteUp() {
+    const currentVote = this.state.vote;
+    this.setState({vote: currentVote + 1});
+  }
+
+  voteDown() {
+    const currentVote = this.state.vote;
+    this.setState({vote: currentVote - 1});
+  }
+
   render() {
-    const{ title, author,vote, description, createdAt } = this.props.question;
+    const{ title, author, description, createdAt } = this.props.question;
+    const{ vote } = this.state;
     return (
       <Container>
         {this.renderHeader()}
@@ -62,11 +73,11 @@ export default class QuestionDetail extends Component {
                 </Text>
               </Body>
               <Right>
-                <Button transparent>
+                <Button transparent onPress={()=> this.voteUp()}>
                   <Icon active name="arrow-up" />
                 </Button>
                 <Text>{vote}</Text>
-                <Button transparent>
+                <Button transparent onPress={()=> this.voteDown()} >
                   <Icon active name="arrow-down" />
                 </Button>
               </Right>
