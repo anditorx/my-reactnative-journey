@@ -12,14 +12,9 @@ import {
   Image
 } from 'react-native';
 
-const GoPayFeatures = (props) => {
-  return(
-    <View style={{flex: 1,alignItems: 'center',justifyContent: 'center'}}>
-      <Image source={props.img}/>
-      <Text style={{fontSize: 14, fontWeight: 'bold',color: 'white', marginTop: 15}}>{props.title}</Text>
-    </View>
-  )
-}
+import GoPayFeatures from './src/components/molecules/GoPayFeatures'
+import MainFeatures from './src/components/molecules/MainFeatures'
+
 
 export default class App extends Component {
   render() {
@@ -52,57 +47,15 @@ export default class App extends Component {
           </View>
           {/* main feature */}
           <View style={{flexDirection: 'row', flexWrap: 'wrap', marginTop: 18}}>
-            <View style={{flexDirection: 'row', justifyContent: 'space-between', width:'100%', marginBottom: 18}}>
-              <View style={{width: `${100/4}%`, alignItems: 'center'}} >
-                <View style={{width: 60, height: 60, borderWidth: 1, borderColor: '#EFEFEF', borderRadius: 20, justifyContent: 'center', alignItems: 'center'}}>
-                  <Image source={require('./src/assets/icon/go-ride.png')} />
-                </View>
-                <Text style={{fontSize: 12,fontWeight: 'bold', textAlign: 'center', marginTop: 6}}>GO-RIDE</Text>
-              </View>
-              <View style={{width: `${100/4}%`, alignItems: 'center'}} >
-                <View style={{width: 60, height: 60, borderWidth: 1, borderColor: '#EFEFEF', borderRadius: 20, justifyContent: 'center', alignItems: 'center'}}>
-                  <Image source={require('./src/assets/icon/go-car.png')} />
-                </View>
-                <Text style={{fontSize: 12,fontWeight: 'bold', textAlign: 'center', marginTop: 6}}>GO-CAR</Text>
-              </View>
-              <View style={{width: `${100/4}%`, alignItems: 'center'}} >
-                <View style={{width: 60, height: 60, borderWidth: 1, borderColor: '#EFEFEF', borderRadius: 20, justifyContent: 'center', alignItems: 'center'}}>
-                  <Image source={require('./src/assets/icon/go-bluebird.png')} />
-                </View>
-                <Text style={{fontSize: 12,fontWeight: 'bold', textAlign: 'center', marginTop: 6}}>GO-BLUEBIRD</Text>
-              </View>
-              <View style={{width: `${100/4}%`, alignItems: 'center'}} >
-                <View style={{width: 60, height: 60, borderWidth: 1, borderColor: '#EFEFEF', borderRadius: 20, justifyContent: 'center', alignItems: 'center'}}>
-                  <Image source={require('./src/assets/icon/go-send.png')} />
-                </View>
-                <Text style={{fontSize: 12,fontWeight: 'bold', textAlign: 'center', marginTop: 6}}>GO-SEND</Text>
-              </View>
-            </View>
-            <View style={{flexDirection: 'row', justifyContent: 'space-between', width:'100%', marginBottom: 18}}>
-              <View style={{width: `${100/4}%`, alignItems: 'center'}} >
-                <View style={{width: 60, height: 60, borderWidth: 1, borderColor: '#EFEFEF', borderRadius: 20, justifyContent: 'center', alignItems: 'center'}}>
-                  <Image source={require('./src/assets/icon/go-deals.png')} />
-                </View>
-                <Text style={{fontSize: 12,fontWeight: 'bold', textAlign: 'center', marginTop: 6}}>GO-DEALS</Text>
-              </View>
-              <View style={{width: `${100/4}%`, alignItems: 'center'}} >
-                <View style={{width: 60, height: 60, borderWidth: 1, borderColor: '#EFEFEF', borderRadius: 20, justifyContent: 'center', alignItems: 'center'}}>
-                  <Image source={require('./src/assets/icon/go-pulsa.png')} />
-                </View>
-                <Text style={{fontSize: 12,fontWeight: 'bold', textAlign: 'center', marginTop: 6}}>GO-PULSA</Text>
-              </View>
-              <View style={{width: `${100/4}%`, alignItems: 'center'}} >
-                <View style={{width: 60, height: 60, borderWidth: 1, borderColor: '#EFEFEF', borderRadius: 20, justifyContent: 'center', alignItems: 'center'}}>
-                  <Image source={require('./src/assets/icon/go-food.png')} />
-                </View>
-                <Text style={{fontSize: 12,fontWeight: 'bold', textAlign: 'center', marginTop: 6}}>GO-FOOD</Text>
-              </View>
-              <View style={{width: `${100/4}%`, alignItems: 'center'}} >
-                <View style={{width: 60, height: 60, borderWidth: 1, borderColor: '#EFEFEF', borderRadius: 20, justifyContent: 'center', alignItems: 'center'}}>
-                  <Image source={require('./src/assets/icon/go-more.png')} />
-                </View>
-                <Text style={{fontSize: 12,fontWeight: 'bold', textAlign: 'center', marginTop: 6}}>MORE</Text>
-              </View>
+            <View style={{flexDirection: 'row', justifyContent: 'space-between', width:'100%', flexWrap: 'wrap'}}>
+              <MainFeatures img={require('./src/assets/icon/go-ride.png')} title={'GO-RIDE'} />
+              <MainFeatures img={require('./src/assets/icon/go-car.png')} title={'GO-CAR'} />
+              <MainFeatures img={require('./src/assets/icon/go-bluebird.png')} title={'GO-BLUEBIRD'} />
+              <MainFeatures img={require('./src/assets/icon/go-send.png')} title={'GO-SEND'} />
+              <MainFeatures img={require('./src/assets/icon/go-deals.png')} title={'GO-DEALS'} />
+              <MainFeatures img={require('./src/assets/icon/go-pulsa.png')} title={'GO-PULSA'} />
+              <MainFeatures img={require('./src/assets/icon/go-food.png')} title={'GO-FOOD'} />
+              <MainFeatures img={require('./src/assets/icon/go-more.png')} title={'MORE'} />
             </View>
           </View>
           {/* section */}
