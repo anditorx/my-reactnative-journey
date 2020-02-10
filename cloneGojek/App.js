@@ -1,4 +1,3 @@
-
 import React, {Component} from 'react';
 import {
   SafeAreaView,
@@ -12,6 +11,15 @@ import {
   TextInput,
   Image
 } from 'react-native';
+
+const GoPayFeatures = (props) => {
+  return(
+    <View style={{flex: 1,alignItems: 'center',justifyContent: 'center'}}>
+      <Image source={props.img}/>
+      <Text style={{fontSize: 14, fontWeight: 'bold',color: 'white', marginTop: 15}}>{props.title}</Text>
+    </View>
+  )
+}
 
 export default class App extends Component {
   render() {
@@ -36,22 +44,10 @@ export default class App extends Component {
               <Text style={{color: 'white', fontSize: 17, fontWeight: 'bold'}}>Rp 1.240.415</Text>
             </View>
             <View style={{flexDirection: 'row',paddingTop: 20, paddingBottom: 14,backgroundColor: '#2F65BD', borderBottomLeftRadius: 5,borderBottomRightRadius: 5}}>
-              <View style={{flex: 1,alignItems: 'center',justifyContent: 'center'}}>
-                <Image source={require('./src/assets/icon/pay.png')}/>
-                <Text style={{fontSize: 14, fontWeight: 'bold',color: 'white', marginTop: 15}}>Pay</Text>
-              </View>
-              <View style={{flex: 1,alignItems: 'center',justifyContent: 'center'}}>
-                <Image source={require('./src/assets/icon/nearby.png')}/>
-                <Text style={{fontSize: 14, fontWeight: 'bold',color: 'white', marginTop: 15}}>Nearby</Text>
-              </View>
-              <View style={{flex: 1,alignItems: 'center',justifyContent: 'center'}}>
-                <Image source={require('./src/assets/icon/topup.png')}/>
-                <Text style={{fontSize: 14, fontWeight: 'bold',color: 'white', marginTop: 15}}>TopUp</Text>
-              </View>
-              <View style={{flex: 1,alignItems: 'center',justifyContent: 'center'}}>
-                <Image source={require('./src/assets/icon/more.png')}/>
-                <Text style={{fontSize: 14, fontWeight: 'bold',color: 'white', marginTop: 15}}>More</Text>
-              </View>
+              <GoPayFeatures img={require('./src/assets/icon/pay.png')} title={'Pay'} />
+              <GoPayFeatures img={require('./src/assets/icon/nearby.png')} title={'Nearby'} />
+              <GoPayFeatures img={require('./src/assets/icon/topup.png')} title={'TopUp'} />
+              <GoPayFeatures img={require('./src/assets/icon/more.png')} title={'More'} />
             </View>
           </View>
           {/* main feature */}
