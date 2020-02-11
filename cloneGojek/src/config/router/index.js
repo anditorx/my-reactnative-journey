@@ -1,23 +1,40 @@
 
-import { createAppContainer } from 'react-navigation';
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from 'react-navigation-stack';
 import React, { Component } from 'react';
-import { Home, NewsDetail } from '../../containers/pages';
+import { Home, NewsDetail,Orders,OrderDetail } from '../../containers/pages';
 
-
-const Router = createStackNavigator(
+const HomeStack = createStackNavigator(
     {
-        Home: {
-            screen: Home
-        },
-        NewsDetail: {
-            screen: NewsDetail
-        },
+        Home,
+        NewsDetail
     },
     {
         headerMode: 'none',
         initialRouteName: 'Home'
+    }
+)
+
+const OrderStack = createStackNavigator(
+    {
+        Orders,
+        OrderDetail
+    },
+    {
+        headerMode: 'none',
+        initialRouteName: 'Orders'
+    }
+)
+
+const Router = createSwitchNavigator(
+    {
+        HomeStack,
+        OrderStack
+    },
+    {
+        headerMode: 'none',
+        initialRouteName: 'HomeStack'
     }
 )
 

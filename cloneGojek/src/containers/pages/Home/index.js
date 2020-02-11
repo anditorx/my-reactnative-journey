@@ -25,26 +25,30 @@ export default class Home extends Component {
   render() {
     return (
       <View style={styles.container}>
-        {/* container */}
-        {/* search bar */}
         <SearchFeatures />
         <ScrollView style={{ flex: 1, backgroundColor: 'white' }}>
-          {/* gopay features */}
           <HomeGoPay />
-          {/* main feature */}
           <HomeMainFeatures />
-          {/* section */}
           <View style={{ height: 17, backgroundColor: '#F2F2F4', marginTop: 20 }} ></View>
-          {/* news section */}
-          <GoNewsFeatures newsImg={require('../../../assets/dummy/sepak-bola.jpg')} logoImg={require('../../../assets/logo/white.png')} newsTitle={"Egi Maulana Vikri, Bersaing Mendapatkan Tempat Utama di Lechia Gdansk"} onPress={() => this.props.navigation.navigate('NewsDetail')} />
-          {/* internal information section */}
-          <InternalInfoFeatures imgLogo={require('../../../assets/logo/gojek.png')} img={require('../../../assets/dummy/facebook-connect.png')} />
-          {/* gofood banner section */}
-          <BannerSection imgBanner={require('../../../assets/dummy/food-banner.jpg')} imgLogo={require('../../../assets/logo/white.png')} title={'Free GO-FOOD Voucher'} desc={"Quick, before they run out!"} btnText={"GET VOUCHER"} />
-          {/* nearby gofood section | horizontal scrollalble */}
+          <GoNewsFeatures 
+            newsImg={require('../../../assets/dummy/sepak-bola.jpg')} 
+            logoImg={require('../../../assets/logo/white.png')} 
+            newsTitle={"Egi Maulana Vikri, Bersaing Mendapatkan Tempat Utama di Lechia Gdansk"} 
+            onPress={() => this.props.navigation.navigate('NewsDetail')} 
+          />
+          <InternalInfoFeatures 
+            imgLogo={require('../../../assets/logo/gojek.png')} 
+            img={require('../../../assets/dummy/facebook-connect.png')} 
+          />
+          <BannerSection 
+            imgBanner={require('../../../assets/dummy/food-banner.jpg')} 
+            imgLogo={require('../../../assets/logo/white.png')} 
+            title={'Free GO-FOOD Voucher'} 
+            desc={"Quick, before they run out!"} 
+            btnText={"GET VOUCHER"} 
+          />
           <ScrollableHorizontalProducts />
         </ScrollView>
-        {/* bottom navigation */}
         <NavBar />
       </View>
     )
