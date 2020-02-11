@@ -16,8 +16,8 @@ const GoNewsFeatures = (props) => {
       <View style={{ paddingTop: 16, paddingBottom: 20, borderBottomColor: '#E8E9ED', borderBottomWidth: 1 }}>
         <Text style={{ fontSize: 16, color: '#1C1C1C', fontWeight: 'bold' }}>GO-NEWS</Text>
         <Text style={{ fontSize: 14, color: '#7A7A7A', marginBottom: 10 }}>{props.newsTitle}</Text>
-        <TouchableOpacity style={{ backgroundColor: '#61A756', paddingHorizontal: 12, paddingVertical: 11, alignSelf: 'flex-end', borderRadius: 4 }}>
-          <Text style={{ fontSize: 13, fontWeight: 'bold', color: 'white', textAlign: 'center' }}>READ</Text>
+        <TouchableOpacity style={{ backgroundColor: '#61A756', paddingHorizontal: 12, paddingVertical: 11, alignSelf: 'flex-end', borderRadius: 4 }} onPress={props.onPress}>
+          <Text style={{ fontSize: 13, fontWeight: 'bold', color: 'white', textAlign: 'center' }} >READ</Text>
         </TouchableOpacity>
       </View>
     </View>
