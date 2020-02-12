@@ -18,7 +18,9 @@ const IconAction = () => {
 }
 
 class ScanQRCode extends Component {
-
+  state ={
+    barcode: 'More Options'
+  }
   takePicture = async() => {
     if (this.camera) {
       const options = { quality: 0.5, base64: true };
@@ -50,8 +52,11 @@ class ScanQRCode extends Component {
                 buttonPositive: 'Ok',
                 buttonNegative: 'Cancel',
               }}
-              onGoogleVisionBarcodesDetected={({ barcodes }) => {
-                console.log(barcodes);
+              onBarCodeRead={( barcode ) => {
+                console.log(barcode);
+                this.setState({
+                  barcode: barcode.data
+                })
               }}
             />
             <View style={{ flex: 0, flexDirection: 'row', justifyContent: 'center' }}>
@@ -74,7 +79,7 @@ class ScanQRCode extends Component {
             <View style={{ width: 50, height: 3, backgroundColor: '#E0E0E0', marginVertical: 1 }} />
           </View>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-            <Text style={{ fontSize: 20, fontWeight: 'bold' }}>More Option</Text>
+            <Text style={{ fontSize: 20, fontWeight: 'bold' }}>{`${this.state.barcode}`}</Text>
             <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#61A756' }}>Shortcut</Text>
           </View>
           <View style={{ flexDirection: 'row', alignItems: 'flex-start', marginTop: 14, width: '100%' }}>
