@@ -3,7 +3,7 @@ import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from 'react-navigation-stack';
 import React, { Component } from 'react';
-import { Home, NewsDetail,Orders,OrderDetail } from '../../containers/pages';
+import { Home, NewsDetail,Orders,OrderDetail,ScanQRCode } from '../../containers/pages';
 
 const HomeStack = createStackNavigator(
     {
@@ -27,14 +27,25 @@ const OrderStack = createStackNavigator(
     }
 )
 
-const Router = createSwitchNavigator(
+const ScanStack = createStackNavigator(
     {
-        HomeStack,
-        OrderStack
+        ScanQRCode
     },
     {
         headerMode: 'none',
-        initialRouteName: 'HomeStack'
+        initialRouteName: 'ScanQRCode'
+    }
+)
+
+const Router = createSwitchNavigator(
+    {
+        HomeStack,
+        OrderStack,
+        ScanStack
+    },
+    {
+        headerMode: 'none',
+        initialRouteName: 'ScanStack'
     }
 )
 
