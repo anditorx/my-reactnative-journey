@@ -2,15 +2,9 @@ import React, { Component } from 'react'
 import { View, FlatList, StyleSheet } from 'react-native'
 import { Header, Title, Container, Content, Left, Body, Right, ListItem, Text, Icon } from 'native-base'
 import { Actions } from 'react-native-router-flux'
+import {observer} from 'mobx-react/native'
 
 
-const QuestionList = [
-  {title:"First Question", author: "Yahya",vote:1, description: "Description 1", createdAt: new Date("2019-10-17")},
-  {title:"Second Question", author: "Diki",vote:3, description: "Description 2", createdAt: new Date("2019-10-18")},
-  {title:"Third Question", author: "Budi",vote:2, description: "Description 3", createdAt: new Date("2019-10-19")},
-  {title:"Fourth Question", author: "Jimmy",vote:1, description: "Description 4", createdAt: new Date("2019-10-20")},
-  {title:"5 Question", author: "Doni",vote:3, description: "Description 5", createdAt: new Date("2019-10-21")},
-];
 
 function Item ({title, author, vote, description, createdAt}) {
   return (
@@ -26,6 +20,7 @@ function Item ({title, author, vote, description, createdAt}) {
   );
 }
 
+@observer
 export default class Question extends Component {
 
   renderHeader() {
@@ -40,6 +35,7 @@ export default class Question extends Component {
   }
 
   render() {
+    const {data} = this.props.store;
     return (
       <Container>
         {this.renderHeader()}
