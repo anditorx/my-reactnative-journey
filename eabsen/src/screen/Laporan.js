@@ -1,48 +1,47 @@
-import React, { Component } from 'react'
-import { Text, View, StyleSheet,Image } from 'react-native'
-import { Container, Header, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body } from 'native-base';
-
-export default class Laporan extends Component {
-	render() {
-		return (
-			<Container>
-        <Header />
+import React, { Component } from 'react';
+import {View,TouchableOpacity} from 'react-native'
+import { Container, Header, Content, List, ListItem, Thumbnail, Text, Left, Body, Right, Button,Icon,Title } from 'native-base';
+export default class ListThumbnailExample extends Component {
+  render() {
+    return (
+      <Container >
+        <Header style={{backgroundColor: "white"}}>
+          <Left>
+            <Button transparent onPress={() => this.props.navigation.goBack()}>
+              <Icon name='arrow-back' style={{color: 'black'}}/>
+            </Button>
+          </Left>
+          <Body>
+            <Title style={{color: 'black'}}>Laporan</Title>
+            {/* <Subtitle>Subtitle</Subtitle> */}
+          </Body>
+          <Right />
+        </Header>
         <Content>
-          <Card style={{flex: 0}}>
-            <CardItem>
+          <List>
+            <ListItem thumbnail>
               <Left>
-                <Thumbnail source={{uri: 'Image URL'}} />
-                <Body>
-                  <Text>NativeBase</Text>
-                  <Text note>April 15, 2016</Text>
-                </Body>
+                <Thumbnail square source={require('../assets/img/banner_product_knowledge_black1.png')} />
               </Left>
-            </CardItem>
-            <CardItem>
               <Body>
-                <Image source={{uri: 'Image URL'}} style={{height: 200, width: 200, flex: 1}}/>
-                <Text>
-                  //Your text here
-                </Text>
+                <Text>Sankhadeep</Text>
+                <Text note numberOfLines={1}>Its time to build a difference . .</Text>
               </Body>
-            </CardItem>
-            <CardItem>
-              <Left>
-                <Button transparent textStyle={{color: '#87838B'}}>
-                  <Icon name="logo-github" />
-                  <Text>1,926 stars</Text>
+              <Right>
+                <Button transparent>
+                  <TouchableOpacity>
+                    <Text>Add</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity>
+                    <Text>History</Text>
+                  </TouchableOpacity>
                 </Button>
-              </Left>
-            </CardItem>
-          </Card>
+              </Right>
+            </ListItem>
+            
+          </List>
         </Content>
       </Container>
-		)
-	}
+    );
+  }
 }
-
-const styles = StyleSheet.create({
-	container: {
-	}
-
-});
