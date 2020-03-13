@@ -17,7 +17,7 @@ const peopleReducer = (state = initialState, action) => {
 		case FETCHING_PEOPLE_FAILURE : 
 			return{...state, isFetching: false, errorMessage: action.payload};
 		case FETCHING_PEOPLE_SUCCESS : 
-			return{...state, isFetching: true, people: action.payload};
+			return{...state, isFetching: false, people: action.payload};
 		default :
 			return state;
 	}
