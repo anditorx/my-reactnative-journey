@@ -4,6 +4,10 @@ import {
 	FETCHING_PEOPLE_FAILURE
 } from './types';
 
+import{
+	API_PEOPLE_LIST
+} from '../../config/api'
+
 
 export const fetchingPeopleRequest = () => ({type: FETCHING_PEOPLE_REQUEST});
 export const fetchingPeopleSuccess = (json) => ({
@@ -19,7 +23,7 @@ export const fetchPeople = () => {
 	return async dispatch => {
 		dispatch(fetchingPeopleRequest());
 		try {
-			let response = await fetch('https://randomuser.me/api/?results=15');
+			let response = await fetch(API_PEOPLE_LIST);
 			let json = await response.json();
 			dispatch(fetchingPeopleSuccess(json.results));
 		} catch(error){
