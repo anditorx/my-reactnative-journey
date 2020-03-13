@@ -6,25 +6,25 @@ import {connect} from 'react-redux';
 import PropTypes from "prop-types";
 
  class AppContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      people: [],
-      errorMessage: "",
-      isFetching: true
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     people: [],
+  //     errorMessage: "",
+  //     isFetching: true
+  //   };
+  // }
 
-  async fetchRandomPeopleAPI() {
-    try {
-      let response = await fetch("https://randomuser.me/api/?results=15");
-      let json = await response.json();
-      // console.log(json);
-      this.setState({ people: json.results, isFetching: false });
-    } catch (error) {
-      this.setState({ errorMessage: error });
-    }
-  }
+  // async fetchRandomPeopleAPI() {
+  //   try {
+  //     let response = await fetch("https://randomuser.me/api/?results=15");
+  //     let json = await response.json();
+  //     // console.log(json);
+  //     this.setState({ people: json.results, isFetching: false });
+  //   } catch (error) {
+  //     this.setState({ errorMessage: error });
+  //   }
+  // }
 
   componentDidMount() {
     // this.fetchRandomPeopleAPI();
