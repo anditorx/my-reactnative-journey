@@ -12,7 +12,7 @@ const App = () => (
 	<>
 		<StatusBar barStyle="dark-content" />
 		<SafeAreaView>
-			<Header/>
+			<Header headerText={'Albums'}/>
 			<View>
 				<Text>Test</Text>
 			</View>
