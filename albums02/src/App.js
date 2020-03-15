@@ -7,15 +7,14 @@ import {
 	StatusBar,
 } from 'react-native';
 import Header from './components/Header';
+import AlbumList from './components/AlbumList';
 
 const App = () => (
 	<>
 		<StatusBar barStyle="dark-content" />
 		<SafeAreaView>
 			<Header headerText={'Albums'}/>
-			<View>
-				<Text>Test</Text>
-			</View>
+			<AlbumList />
 		</SafeAreaView>
 	</>
 );
