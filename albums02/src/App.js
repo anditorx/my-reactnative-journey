@@ -12,7 +12,7 @@ import AlbumList from './components/AlbumList';
 const App = () => (
 	<>
 		<StatusBar barStyle="dark-content" />
-		<SafeAreaView>
+		<SafeAreaView style={{flex: 1}}>
 			<Header headerText={'Albums'}/>
 			<AlbumList />
 		</SafeAreaView>
