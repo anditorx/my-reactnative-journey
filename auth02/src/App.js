@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { Text, View,SafeAreaView, } from 'react-native'
+import { Text, View, SafeAreaView, } from 'react-native'
 import firebase from 'firebase';
 import {Header} from './components/common';
+import LoginForm from '../src/components/LoginForm';
 
 export default class App extends Component {
 
@@ -21,7 +22,7 @@ export default class App extends Component {
 		return (
 			<SafeAreaView>
 				<Header headerText = {"Authentication"} />
-				<Text> textInComponent </Text>
+				<LoginForm/>
 			</SafeAreaView>
 		)
 	}
