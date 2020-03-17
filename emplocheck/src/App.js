@@ -6,7 +6,25 @@ import firebase from 'firebase'
 import ReduxThunk from 'redux-thunk';
 import reducers from './reducers';
 import LoginForm from './components/LoginForm';
+import EmployeeList from './components/EmployeeList';
 import {Header} from './components/common'
+
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
+
+import AppNavigator from './AppNavigator';
+
+// const RootStack = createStackNavigator(
+//   {
+// 		Login: LoginForm,
+// 		List: EmployeeList,
+// 	},
+// 	{
+//     initialRouteName: 'Login',
+//   }
+// );
+
+// const AppNavigator = createAppContainer(RootStack)
 
 class App extends Component {
 
@@ -28,9 +46,9 @@ class App extends Component {
 		const store = createStore(reducers,{},applyMiddleware(ReduxThunk));
 		return (
 			<Provider store={store}>
-				<SafeAreaView>
-					{/* <Header headerText={"Emplocheck"} /> */}
-					<LoginForm/>
+				<SafeAreaView style={{flex: 1}}>
+					{/* <LoginForm /> */}
+					<AppNavigator />
 				</SafeAreaView>
 			</Provider>
 		);
