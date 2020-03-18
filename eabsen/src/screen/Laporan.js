@@ -24,8 +24,8 @@ export default class ListThumbnailExample extends Component {
                 <Thumbnail square source={require('../assets/img/banner_product_knowledge_black1.png')} />
               </Left>
               <Body>
-                <Text>Sankhadeep</Text>
-                <Text note numberOfLines={1}>Its time to build a difference . .</Text>
+                <Text>Jaya Makmur Abadi</Text>
+                <Text note numberOfLines={1}>Jakarta</Text>
               </Body>
               <Right>
                 <Button transparent>
