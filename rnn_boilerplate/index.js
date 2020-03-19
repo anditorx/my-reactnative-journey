@@ -6,7 +6,7 @@
 
 
 import { Navigation } from "react-native-navigation";
-import App from "./App";
+import App from "./src/App";
 
 Navigation.registerComponent(`navigation.playground.WelcomeScreen`, () => App);
 
