@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/AntDesign'
 import {Navigation} from 'react-native-navigation'
 
 
-export default class AddJabatan extends Component {
+export default class AddDivisi extends Component {
   render() {
     return (
       <Container>
@@ -23,11 +23,11 @@ export default class AddJabatan extends Component {
         <Content>
           <Form style={{marginHorizontal: 15}}>
             <Item floatingLabel>
-              <Label>Name</Label>
+              <Label>Divisi</Label>
               <Input />
             </Item>
             <Item floatingLabel>
-              <Label>Comment</Label>
+              <Label>Keterangan</Label>
               <Input />
             </Item>
 						<Button block style={{marginTop: 50}}>

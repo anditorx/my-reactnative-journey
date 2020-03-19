@@ -4,11 +4,11 @@ import {Navigation} from 'react-native-navigation';
 import {registerScreens} from './src/config/RegisterScreen';
 import {setRoot} from './src/config/ControllScreen'
 
-// import Provider from './src/utils/MobxRnnProvider';
-// import Stores from './src/stores'
+import Provider from './src/utils/MobxRnnProvider';
+import Stores from './src/stores'
 // import AuthStore from './src/stores/auth'
 
-registerScreens(null, null);
+registerScreens(Stores, Provider);
 Text.allowFontScaling = false
 console.disableYellowBox = true;
 

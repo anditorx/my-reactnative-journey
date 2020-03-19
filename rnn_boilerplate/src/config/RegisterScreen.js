@@ -1,12 +1,12 @@
 
 import {Navigation} from 'react-native-navigation';
-import AddJabatan from '../sreens/AddJabatan'
+import AddDivisi from '../sreens/AddDivisi'
 import HomePage from '../sreens/HomePage'
 
 export function registerScreens(store: {}, Provider: {}) {
 
 	Navigation.registerComponentWithRedux('HomePage', () => HomePage, Provider, store)
-	Navigation.registerComponentWithRedux('AddJabatan', () => AddJabatan, Provider, store)
+	Navigation.registerComponentWithRedux('AddDivisi', () => AddDivisi, Provider, store)
 
 }
 
