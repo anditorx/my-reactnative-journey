@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import { Container, Header, Left, Body, Right, Button, Icon, Title, Text } from 'native-base';
-import {setRoot,pushScreen} from '../config/ControllScreen'
+import { Container, Header, Left, Body, Right, Button, Icon, Title, Text, Content, Card, CardItem } from 'native-base';
+import { setRoot, pushScreen } from '../config/ControllScreen'
 
 export default class HomePage extends Component {
   constructor(props) {
@@ -14,22 +14,29 @@ export default class HomePage extends Component {
     return (
       <Container>
         <Header>
-          <Left>
-            <Button hasText transparent>
-              <Text>Back</Text>
-            </Button>
-          </Left>
+          <Left></Left>
           <Body>
             <Title>Header</Title>
           </Body>
           <Right>
-          {/* pushScreen(this.props.componentId, 'AddJabatan') */}
-          {/* setRoot('AddJabatan') */}
+            {/* pushScreen(this.props.componentId, 'AddJabatan') */}
+            {/* setRoot('AddJabatan') */}
             <Button hasText transparent onPress={() => pushScreen(this.props.componentId, 'AddJabatan')}>
               <Text>Add</Text>
             </Button>
           </Right>
         </Header>
+        <Content>
+          <Card>
+            <CardItem>
+              <Body>
+                <Text>
+                //Your text here
+                </Text>
+              </Body>
+            </CardItem>
+          </Card>
+        </Content>
       </Container>
     );
   }

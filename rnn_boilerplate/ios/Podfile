@@ -35,6 +35,7 @@ target 'rnn_boilerplate' do
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
   pod 'ReactNativeNavigation', :podspec => '../node_modules/react-native-navigation/ReactNativeNavigation.podspec'
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
   target 'rnn_boilerplateTests' do
     inherit! :search_paths
