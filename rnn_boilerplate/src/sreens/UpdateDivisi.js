@@ -8,17 +8,34 @@ import { setRoot } from '../config/ControllScreen';
 
 import { inject, observer } from 'mobx-react';
 @inject("AuthStore") @observer
-export default class AddDivisi extends Component {
-  constructor(props) {
-    super(props)
-  
-    this.state = {
-       divisi_name: '',
-       note: ''
-    };
-  };
+export default class UpdateDivisi extends Component {
 
-  
+	constructor(props) {
+		super(props)
+		console.log(props);
+		this.state = {
+			 data: props.text,
+			 dataDivisi: '',
+			 id: '',
+			 divisi_name: '',
+       note: ''
+			 
+		};
+	};
+
+	async componentDidMount() {
+		const data = {
+			id: this.state.data
+		}
+    const response = await this.props.AuthStore.getDivisiWithId(data);
+    this.setState({
+			id: response.result[0].id,
+			divisi_name: response.result[0].divisi_name,
+			note : response.result[0].note
+		})
+		console.log(this.state.dataDivisi);
+  }
+	
 
   handleDivisiNameInput = (text) => {
     this.setState({ divisi_name: text })
@@ -29,29 +46,29 @@ export default class AddDivisi extends Component {
 
   _renderButtonClick = async ()=> {
 
+    const id = this.state.id;
     const divisi_name_input = this.state.divisi_name;
-    const note_input = this.state.note;
+		const note_input = this.state.note;
+		console.log('Divisi name : '+divisi_name_input);
     if (divisi_name_input == '') {
       
     } else {
       const data = {
+				id : id,
         divisi_name: divisi_name_input,
         note: note_input,
       }
-      const response = await this.props.AuthStore.postDivisi(data);
+      const response = await this.props.AuthStore.putDivisi(data);
       if (response.result.status == 200) {
         Alert.alert(
           'Success',
-          'Succesfully add divisi',
+          'Succesfully update divisi',
           [
             {text: 'OK', onPress: () => setRoot('HomePage')},
           ],
           {cancelable: false},
         );
-        this.setState({
-          divisi_name: '',
-          note: '',
-        });
+        
       } else {
         () => showToast()
       }
@@ -72,7 +89,7 @@ export default class AddDivisi extends Component {
             </Button>
           </Left>
           <Body>
-            <Title>Create Divisi</Title>
+            <Title>Update Divisi</Title>
           </Body>
 					<Right></Right>
         </Header>
@@ -81,15 +98,15 @@ export default class AddDivisi extends Component {
             <Item floatingLabel>
               <Label>Divisi</Label>
               <Input 
-                onChangeText={this.handleDivisiNameInput} 
-                value={this.state.divisi_name}
+								value={this.state.divisi_name}
+								onChangeText={this.handleDivisiNameInput} 
               />
             </Item>
             <Item floatingLabel>
               <Label>Keterangan</Label>
-              <Input 
-                onChangeText={this.handleNoteInput} 
-                value={this.state.note}
+							<Input 
+								value={this.state.note}
+								onChangeText={this.handleNoteInput} 
               />
             </Item>
             

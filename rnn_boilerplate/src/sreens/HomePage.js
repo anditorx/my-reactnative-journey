@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Alert,TouchableNativeFeedback,TouchableOpacity } from 'react-native';
 import { Container, Header, Left, Body, Right, Button, Icon, Title, Text, Content, Card, CardItem } from 'native-base';
-
+import UpdateDivisi from './UpdateDivisi';
 
 import { setRoot, pushScreen } from '../config/ControllScreen'
 import { inject, observer } from 'mobx-react';
@@ -29,13 +29,15 @@ export default class HomePage extends Component {
   //   })
   // }
 
+  
+
 
   _renderDivisiList() {
     return (
       this.state.divisi !== '' ?
         this.state.divisi.map((data, key) => {
           return (
-            <TouchableOpacity onPress={() => Alert.alert('ID : '+data.id, 'Divisi : '+data.divisi_name)}>
+            <TouchableOpacity onPress={() => pushScreen(this.props.componentId, 'UpdateDivisi',data.id)}>
               <Card key={key} >
                 <CardItem>
                   <Body>

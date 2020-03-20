@@ -31,12 +31,12 @@ export const setRoot = (name) => Navigation.setRoot({
 	}
 });
 
-export const pushScreen = (id, name) =>
+export const pushScreen = (id, name, value) =>
 	Navigation.push(id, {
 		component: {
 			name: name,
 			passProps: {
-				text: 'Text'
+				text: value
 			},
 			options: {
 				topBar: {

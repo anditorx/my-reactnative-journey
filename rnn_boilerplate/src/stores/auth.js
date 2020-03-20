@@ -42,6 +42,29 @@ class AuthStore {
     return res;
   }
 
+  async getDivisiWithId(param) {
+    const res = await this.fetch.get('divisi?id='+param.id,{
+      'Content-Type' : 'application/json',
+      'Accept' : 'application/json',
+    }, JSON.stringify(param))
+
+    const {success, result} = res;
+    console.log('response getDivisiWithId : ', res)
+    return res;
+  }
+
+  async putDivisi(param) {
+    const res = await this.fetch.put('divisi',{
+      'Content-Type' : 'application/json',
+      'Accept' : 'application/json',
+    }, JSON.stringify(param))
+
+    const {success, result} = res;
+    console.log('response putDivisi : ', res)
+    return res;
+  }
+
+
 }
 
 const authStore = new AuthStore()
