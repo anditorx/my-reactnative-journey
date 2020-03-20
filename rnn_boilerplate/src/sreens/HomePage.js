@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { View, Alert,TouchableNativeFeedback,TouchableOpacity } from 'react-native';
-import { Container, Header, Left, Body, Right, Button, Icon, Title, Text, Content, Card, CardItem } from 'native-base';
+import { Container, Header, Left, Body, Right, Button, Title, Text, Content, Card, CardItem } from 'native-base';
 import UpdateDivisi from './UpdateDivisi';
+import Swipeout from 'react-native-swipeout';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 import { setRoot, pushScreen } from '../config/ControllScreen'
 import { inject, observer } from 'mobx-react';
+
 @inject("AuthStore") @observer
 // DILARANG IMPORT APAPUN DI MARIH!! BUKAN RUMAH NENEK
 export default class HomePage extends Component {
@@ -21,7 +24,6 @@ export default class HomePage extends Component {
       divisi: response.result
     })
   }
-
   // async componentDidUpdate() {
   //   const response = await this.props.AuthStore.getDivisi();
   //   this.setState({
@@ -29,8 +31,18 @@ export default class HomePage extends Component {
   //   })
   // }
 
-  
-
+  _renderDeleteData = async (id) => {
+    console.log('ID : '+id );
+    const data = {
+      id: id
+    }
+    const response = await this.props.AuthStore.deleteAlternativeDivisi(data);
+    console.log(response);
+    const responseAfterDelete = await this.props.AuthStore.getDivisi();
+    this.setState({
+      divisi: responseAfterDelete.result
+    })
+  }
 
   _renderDivisiList() {
     return (
@@ -45,6 +57,27 @@ export default class HomePage extends Component {
                       {data.divisi_name}
                     </Text>
                   </Body>
+                  <Right>
+                    <TouchableOpacity
+                      onPress={() => {
+                        Alert.alert(
+                          'Data will be remove',
+                          'Are you sure want to delete this data ? \n id : '+data.id,
+                          [
+                            {text: 'OK', onPress: () => this._renderDeleteData(data.id)},
+                            {
+                              text: 'Cancel',
+                              onPress: () => console.log('Cancel Pressed'),
+                              style: 'cancel',
+                            },
+                          ],
+                          {cancelable: false},
+                        );
+                      }}
+                    >
+                      <Icon name="delete" style={{fontSize: 25, color: Platform.OS == 'android' ? 'black' : 'black'}} />
+                    </TouchableOpacity>
+                  </Right>
                 </CardItem>
               </Card>
             </TouchableOpacity>

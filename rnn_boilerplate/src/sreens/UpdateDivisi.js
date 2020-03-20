@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-import {Platform, View, ToastAndroid, Alert} from 'react-native';
+import {Platform, View, ToastAndroid, Alert, TouchableOpacity} from 'react-native';
 import { Container, Header, Content, Form, Item, Input, Label ,Button,Text,Left,Right,Title,Body} from 'native-base';
 import Icon from 'react-native-vector-icons/AntDesign'
 import {Navigation} from 'react-native-navigation'
@@ -77,6 +77,16 @@ export default class UpdateDivisi extends Component {
     
     console.log(divisi_name_input);
     console.log(note_input);
+	}
+	
+	_renderDeleteData = async (id) => {
+    console.log('ID : '+id );
+    const data = {
+      id: id
+    }
+    const response = await this.props.AuthStore.deleteAlternativeDivisi(data);
+    console.log(response);
+    setRoot('HomePage')
   }
   
   render() {
@@ -91,7 +101,27 @@ export default class UpdateDivisi extends Component {
           <Body>
             <Title>Update Divisi</Title>
           </Body>
-					<Right></Right>
+					<Right>
+						<TouchableOpacity 
+							onPress={() => {
+								Alert.alert(
+									'Data will be remove',
+									'Are you sure want to delete this data ? \n id : '+this.state.id,
+									[
+										{text: 'OK', onPress: () => this._renderDeleteData(this.state.id)},
+										{
+											text: 'Cancel',
+											onPress: () => console.log('Cancel Pressed'),
+											style: 'cancel',
+										},
+									],
+									{cancelable: false},
+								);
+							}}
+						>
+							<Icon name="delete" style={{fontSize: 25, color: Platform.OS == 'android' ? 'white' : 'black'}} />
+						</TouchableOpacity>
+					</Right>
         </Header>
         <Content>
           <Form style={{marginHorizontal: 15}}>
@@ -114,7 +144,7 @@ export default class UpdateDivisi extends Component {
               block style={{marginTop: 50}}
               onPress={ ()=> this._renderButtonClick() }
             >
-							<Text>Submit</Text>
+							<Text>Update</Text>
 						</Button>
           </Form>
           

@@ -2116,7 +2116,7 @@ cosmiconfig@^5.0.5, cosmiconfig@^5.1.0:
     js-yaml "^3.13.1"
     parse-json "^4.0.0"
 
-create-react-class@^15.6.3:
+create-react-class@^15.6.0, create-react-class@^15.6.3:
   version "15.6.3"
   resolved "https://registry.yarnpkg.com/create-react-class/-/create-react-class-15.6.3.tgz#2d73237fb3f970ae6ebe011a9e66f46dbca80036"
   integrity sha512-M+/3Q6E6DLO6Yx3OwrWjwHBnvfXXYA7W+dFjt/ZDBemHO1DDZhsalX/NUtnTYclN6GfnBDRh4qRHjcDHmlJBJg==
@@ -5656,6 +5656,15 @@ react-native-navigation@3.1.2:
     prop-types "15.x.x"
     react-lifecycles-compat "2.0.0"
     tslib "1.9.3"
+
+react-native-swipeout@^2.3.6:
+  version "2.3.6"
+  resolved "https://registry.yarnpkg.com/react-native-swipeout/-/react-native-swipeout-2.3.6.tgz#47dac8a835825cf3f2eef9e495574a3d9ab6d3fa"
+  integrity sha512-t9suUCspzck4vp2pWggWe0frS/QOtX6yYCawHnEes75A7dZCEE74bxX2A1bQzGH9cUMjq6xsdfC94RbiDKIkJg==
+  dependencies:
+    create-react-class "^15.6.0"
+    prop-types "^15.5.10"
+    react-tween-state "^0.1.5"
 
 react-native-vector-icons@^6.6.0:
   version "6.6.0"

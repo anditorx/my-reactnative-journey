@@ -64,6 +64,28 @@ class AuthStore {
     return res;
   }
 
+  async deleteDivisi(param) {
+    const res = await this.fetch.delete('divisi',{
+      'Content-Type' : 'application/json',
+      'Accept' : 'application/json',
+    }, JSON.stringify(param))
+
+    const {success, result} = res;
+    console.log('response deleteDivisi : ', res)
+    return res;
+  }
+
+  async deleteAlternativeDivisi(param) {
+    const res = await this.fetch.post('divisi/delete',{
+      'Content-Type' : 'application/json',
+      'Accept' : 'application/json',
+    }, JSON.stringify(param))
+
+    const {success, result} = res;
+    console.log('response deleteDivisi : ', res)
+    return res;
+  }
+
 
 }
 
