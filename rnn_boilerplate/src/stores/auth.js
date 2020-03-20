@@ -31,6 +31,17 @@ class AuthStore {
     return res;
   }
 
+  async postDivisi(param) {
+    const res = await this.fetch.post('divisi',{
+      'Content-Type' : 'application/json',
+      'Accept' : 'application/json',
+    }, JSON.stringify(param))
+
+    const {success, result} = res;
+    console.log('response postDivisi : ', res)
+    return res;
+  }
+
 }
 
 const authStore = new AuthStore()

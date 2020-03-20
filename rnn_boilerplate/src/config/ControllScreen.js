@@ -45,4 +45,6 @@ export const pushScreen = (id, name) =>
 				}
 			}
 		}
-	});
+	}
+);
+
